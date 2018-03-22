@@ -110,7 +110,7 @@ function initModalBoxes(modals){
 function setUpModalBox(source, target) {
   $(source).each(function() {
     $(this).on('click', function() {
-      var title = $(this).html();
+      var title = $(this).text() || $(this).attr('title') || $(this).html();
       $.get($(this).attr('href'), function(data){
         $(target).html(data);
         $(target).dialog('option', 'title', title);
